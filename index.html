@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e5tiaraty.com - نطاق مميز للبيع</title>
-    <meta name="description" content="امتلك النطاق e5tiaraty.com، اسم عربي قوي سهل التذكر ومثالي للمتاجر ومواقع التقييمات والترشيحات. تواصل الآن وقدّم عرضك.">
+    <meta name="description" content="امتلك النطاق e5tiaraty.com، اسم عربي قوي سهل التذكر ومثالي للمتاجر ومواقع التقييمات والترشيحات. سعر الشراء 1000 جنيه مصري. تواصل الآن وقدّم عرضك.">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -139,9 +139,33 @@
             font-size: 1.2rem;
             color: var(--text-muted);
             max-width: 600px;
-            margin: 0 auto 40px;
+            margin: 0 auto 32px;
             font-weight: 400;
             animation: fadeUp 0.7s ease backwards 0.4s;
+        }
+        .price-tag {
+            display: inline-flex;
+            align-items: baseline;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: var(--primary-light);
+            border: 1px solid rgba(15, 118, 110, 0.2);
+            padding: 14px 30px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            animation: fadeUp 0.7s ease backwards 0.5s;
+        }
+        .price-label {
+            font-size: 0.98rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+        .price-value {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.3;
         }
         .hero-actions {
             display: flex;
@@ -540,7 +564,11 @@
             color: var(--text-muted);
             font-size: 1.05rem;
             max-width: 520px;
-            margin: 0 auto 32px;
+            margin: 0 auto 28px;
+        }
+        .cta-section .price-tag {
+            animation: none;
+            margin-bottom: 28px;
         }
         footer {
             text-align: center;
@@ -597,7 +625,19 @@
             .hero .hero-text {
                 font-size: 1rem;
                 line-height: 1.8;
-                margin-bottom: 28px;
+                margin-bottom: 24px;
+            }
+            .price-tag {
+                padding: 12px 22px;
+                gap: 8px;
+                margin-bottom: 24px;
+                border-radius: 14px;
+            }
+            .price-label {
+                font-size: 0.9rem;
+            }
+            .price-value {
+                font-size: 1.45rem;
             }
             .hero-actions {
                 flex-direction: column;
@@ -747,7 +787,10 @@
             }
             .cta-section p {
                 font-size: 0.97rem;
-                margin-bottom: 24px;
+                margin-bottom: 20px;
+            }
+            .cta-section .price-tag {
+                margin-bottom: 22px;
             }
             footer {
                 padding: 24px 0;
@@ -770,6 +813,9 @@
             }
             .section-title {
                 font-size: 1.35rem;
+            }
+            .price-value {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -803,6 +849,10 @@
             </div>
             <h1>اسم مشروعك القادم<br>هو <span class="domain-name">e5tiaraty.com</span></h1>
             <p class="hero-text">كلمة «اختياراتي» يفهمها كل عربي من أول نظرة. اسم قصير وسهل التذكر ويوحي بالثقة والانتقاء، جاهز تبني عليه متجرك أو موقع تقييماتك أو منصة ترشيحاتك من اليوم الأول.</p>
+            <div class="price-tag">
+                <span class="price-label">سعر الشراء</span>
+                <span class="price-value">1000 جنيه مصري</span>
+            </div>
             <div class="hero-actions">
                 <a href="https://www.facebook.com/share/1E6Wm1VM1f/" class="cta-btn" target="_blank" rel="noopener noreferrer">
                     تواصل معي لتقديم عرضك
@@ -970,10 +1020,16 @@
         <section class="cta-section reveal">
             <h2>جاهز لامتلاك e5tiaraty.com؟</h2>
             <p>الأسماء المميزة لا تنتظر طويلاً. تواصل معي الآن وقدّم عرضك، والنطاق متاح فوراً ونقل الملكية يتم بسرعة وأمان.</p>
-            <a href="https://www.facebook.com/share/1E6Wm1VM1f/" class="cta-btn" target="_blank" rel="noopener noreferrer">
-                تواصل معي الآن
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            </a>
+            <div class="price-tag">
+                <span class="price-label">سعر الشراء</span>
+                <span class="price-value">1000 جنيه مصري</span>
+            </div>
+            <div>
+                <a href="https://www.facebook.com/share/1E6Wm1VM1f/" class="cta-btn" target="_blank" rel="noopener noreferrer">
+                    تواصل معي الآن
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </a>
+            </div>
         </section>
         <footer>
             <p>جميع الحقوق محفوظة © <span id="year"></span> · e5tiaraty.com للبيع</p>
