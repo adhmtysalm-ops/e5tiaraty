@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e5tiaraty.com - نطاق مميز للبيع</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #f59e0b;
-            --primary-hover: #d97706;
-            --bg-dark: #0f172a;
-            --bg-darker: #020617;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary: #0f766e;
+            --primary-hover: #0d9488;
+            --primary-light: #ccfbf1;
+            --bg: #ffffff;
+            --bg-soft: #f8fafc;
+            --bg-card: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+            --shadow-hover: 0 12px 40px rgba(15, 23, 42, 0.1);
         }
         * {
             margin: 0;
@@ -21,237 +25,373 @@
             box-sizing: border-box;
             font-family: 'Rubik', sans-serif;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
-            background: linear-gradient(135deg, var(--bg-dark), var(--bg-darker));
-            color: var(--text-light);
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
+            line-height: 1.7;
             overflow-x: hidden;
-            line-height: 1.6;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
         header {
-            padding: 30px 0;
+            padding: 28px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .logo {
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 1px;
-            background: linear-gradient(to left, #fff, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text);
+        }
+        .logo span {
+            color: var(--primary);
         }
         .status-badge {
-            background: rgba(245, 158, 11, 0.15);
-            color: var(--primary-color);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 500;
-            border: 1px solid rgba(245, 158, 11, 0.3);
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
+            border: 1px solid rgba(15, 118, 110, 0.15);
         }
-        .status-badge::before {
-            content: '';
+        .status-dot {
             width: 8px;
             height: 8px;
-            background: var(--primary-color);
+            background: var(--primary);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary-color);
-            animation: pulse 2s infinite;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
         }
         .hero {
             text-align: center;
-            padding: 100px 0 60px;
+            padding: 120px 0 90px;
             position: relative;
         }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.7s ease forwards 0.1s;
+        }
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            direction: ltr;
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            opacity: 0;
+            transform: translateY(24px);
+            animation: fadeUp 0.7s ease forwards 0.25s;
         }
         .domain-name {
-            background: linear-gradient(to right, #f59e0b, #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+            color: var(--primary);
             display: inline-block;
+            position: relative;
+        }
+        .domain-name::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            right: 0;
+            left: 0;
+            height: 8px;
+            background: rgba(15, 118, 110, 0.15);
+            border-radius: 4px;
+            z-index: -1;
         }
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 540px;
             margin: 0 auto 40px;
+            font-weight: 400;
+            opacity: 0;
+            transform: translateY(24px);
+            animation: fadeUp 0.7s ease forwards 0.4s;
         }
         .cta-btn {
-            display: inline-block;
-            background: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
             color: #fff;
             text-decoration: none;
-            padding: 18px 40px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            border-radius: 50px;
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
+            padding: 16px 36px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.25);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(24px);
+            animation: fadeUp 0.7s ease forwards 0.55s;
         }
         .cta-btn:hover {
             background: var(--primary-hover);
             transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 12px 32px rgba(15, 118, 110, 0.35);
+        }
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+        .cta-btn:hover svg {
+            transform: translateX(-4px);
+        }
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .features {
-            padding: 60px 0 100px;
+            padding: 40px 0 110px;
         }
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 50px;
+            font-size: 1.9rem;
             font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 480px;
+            margin: 0 auto 60px;
         }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
         }
         .feature-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 40px 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 36px 32px;
             border-radius: 20px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
             transform: translateY(30px);
+            box-shadow: var(--shadow);
         }
         .feature-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
         .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(15, 118, 110, 0.25);
         }
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: inline-block;
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+        }
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
         }
         .feature-card p {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+        .cta-section {
+            background: var(--bg-soft);
+            border-radius: 28px;
+            padding: 64px 48px;
+            text-align: center;
+            margin-bottom: 80px;
+            border: 1px solid var(--border);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .cta-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cta-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: -0.4px;
+        }
+        .cta-section p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 460px;
+            margin: 0 auto 32px;
         }
         footer {
             text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 36px 0;
+            border-top: 1px solid var(--border);
             color: var(--text-muted);
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+            font-size: 0.9rem;
         }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            .cta-btn { padding: 15px 30px; font-size: 1.1rem; }
-            header { flex-direction: column; gap: 15px; }
-        }
-        .bg-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-            pointer-events: none;
-        }
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, rgba(0,0,0,0) 70%);
+            .hero {
+                padding: 80px 0 60px;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .hero p {
+                font-size: 1.05rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-section {
+                padding: 48px 28px;
+            }
+            header {
+                flex-direction: column;
+                gap: 14px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="bg-elements">
-        <div class="circle" style="width: 400px; height: 400px; top: -100px; right: -100px;"></div>
-        <div class="circle" style="width: 600px; height: 600px; bottom: 10%; left: -200px; opacity: 0.5;"></div>
-    </div>
     <div class="container">
         <header>
-            <div class="logo">e5tiaraty</div>
-            <div class="status-badge">متاح للبيع الآن</div>
+            <div class="logo">e5tiaraty<span>.com</span></div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                متاح للبيع الآن
+            </div>
         </header>
         <section class="hero">
-            <h1>امتلك النطاق <br> <span class="domain-name">e5tiaraty.com</span></h1>
-            <p>الاسم المثالي لمشروعك القادم. كلمة سهلة التذكر، ذات معنى قوي، ومثالية للمتاجر الإلكترونية، مواقع التقييمات، أو مدونات الترشيحات.</p>
+            <div class="hero-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg>
+                نطاق مميز جاهز للاستخدام
+            </div>
+            <h1>امتلك النطاق<br><span class="domain-name">e5tiaraty.com</span></h1>
+            <p>الاسم المثالي لمشروعك القادم. كلمة سهلة التذكر، ذات معنى قوي، ومثالية للمتاجر الإلكترونية ومواقع التقييمات ومدونات الترشيحات.</p>
             <a href="https://www.facebook.com/share/p/1Fd1NsLs8E/" class="cta-btn" target="_blank" rel="noopener noreferrer">
-                تواصل معي لتقديم عرضك 💬
+                تواصل معي لتقديم عرضك
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             </a>
         </section>
         <section class="features">
-            <h2 class="section-title">لماذا هذا النطاق هو استثمارك الأفضل؟</h2>
+            <h2 class="section-title">لماذا هذا النطاق استثمارك الأفضل؟</h2>
+            <p class="section-subtitle">اسم قصير، واضح، ويحمل معنى قوي يجعل مشروعك يبرز من أول نظرة</p>
             <div class="features-grid">
                 <div class="feature-card reveal">
-                    <span class="feature-icon">🧠</span>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
                     <h3>سهل التذكر والنطق</h3>
-                    <p>كلمة "اختياراتي" مألوفة وقريبة للجمهور العربي، مما يقلل من تكلفة التسويق ويجعل الزوار يعودون لموقعك بسهولة.</p>
+                    <p>كلمة «اختياراتي» مألوفة وقريبة للجمهور العربي، مما يقلل تكلفة التسويق ويجعل الزوار يعودون لموقعك بسهولة.</p>
                 </div>
                 <div class="feature-card reveal">
-                    <span class="feature-icon">🎯</span>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
                     <h3>مثالي للعلامات التجارية</h3>
-                    <p>اسم يحمل دلالة قوية على "الجودة والانتقاء". ممتاز لبناء متجر إلكتروني مميز أو موقع لمراجعة وترشيح المنتجات.</p>
+                    <p>اسم يحمل دلالة قوية على الجودة والانتقاء. ممتاز لبناء متجر إلكتروني مميز أو موقع لمراجعة وترشيح المنتجات.</p>
                 </div>
                 <div class="feature-card reveal">
-                    <span class="feature-icon">📈</span>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+                    </div>
                     <h3>أفضلية في محركات البحث</h3>
-                    <p>نطاقات الـ (.com) القصيرة وذات المعنى المباشر تكتسب ثقة أكبر لدى جوجل وتساعدك في تصدر نتائج البحث أسرع.</p>
+                    <p>نطاقات الـ .com القصيرة وذات المعنى المباشر تكتسب ثقة أكبر لدى جوجل وتساعدك في تصدر نتائج البحث أسرع.</p>
                 </div>
                 <div class="feature-card reveal">
-                    <span class="feature-icon">🤝</span>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                    </div>
                     <h3>نقل ملكية آمن وفوري</h3>
-                    <p>عملية شراء ونقل ملكية النطاق تتم بخطوات بسيطة، سريعة، وموثوقة لضمان حقوقك بالكامل كمالك جديد.</p>
+                    <p>عملية شراء ونقل ملكية النطاق تتم بخطوات بسيطة وسريعة وموثوقة لضمان حقوقك بالكامل كمالك جديد.</p>
                 </div>
             </div>
         </section>
+        <section class="cta-section reveal">
+            <h2>جاهز لامتلاك e5tiaraty.com؟</h2>
+            <p>تواصل معي الآن وقدّم عرضك. النطاق متاح فوراً ونقل الملكية يتم بسرعة وأمان.</p>
+            <a href="https://www.facebook.com/share/p/1Fd1NsLs8E/" class="cta-btn" target="_blank" rel="noopener noreferrer">
+                تواصل معي الآن
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </a>
+        </section>
         <footer>
-            <p>جميع الحقوق محفوظة &copy; <span id="year"></span> | e5tiaraty.com للبيع</p>
+            <p>جميع الحقوق محفوظة © <span id="year"></span> · e5tiaraty.com للبيع</p>
         </footer>
     </div>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-        const reveals = document.querySelectorAll(".reveal");
+        const reveals = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("visible");
+            const windowHeight = window.innerHeight;
+            reveals.forEach((el, i) => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 80) {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, i * 80);
                 }
-            }
+            });
         };
-        window.addEventListener("scroll", revealOnScroll);
+        window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
     </script>
 </body>
