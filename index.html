@@ -28,6 +28,7 @@
         }
         html {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
         body {
             background: var(--bg);
@@ -42,10 +43,11 @@
             padding: 0 24px;
         }
         header {
-            padding: 28px 0;
+            padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
             border-bottom: 1px solid var(--border);
             background: rgba(255, 255, 255, 0.92);
             -webkit-backdrop-filter: blur(12px);
@@ -59,6 +61,7 @@
             font-weight: 800;
             letter-spacing: -0.5px;
             color: var(--text);
+            white-space: nowrap;
         }
         .logo span {
             color: var(--primary);
@@ -74,6 +77,7 @@
             align-items: center;
             gap: 8px;
             border: 1px solid rgba(15, 118, 110, 0.15);
+            white-space: nowrap;
         }
         .status-dot {
             width: 8px;
@@ -118,6 +122,7 @@
             display: inline-block;
             position: relative;
             isolation: isolate;
+            direction: ltr;
         }
         .domain-name::after {
             content: '';
@@ -130,7 +135,7 @@
             border-radius: 4px;
             z-index: -1;
         }
-        .hero p {
+        .hero .hero-text {
             font-size: 1.2rem;
             color: var(--text-muted);
             max-width: 600px;
@@ -149,6 +154,7 @@
         .cta-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             background: var(--primary);
             color: #fff;
@@ -170,6 +176,7 @@
         .cta-btn svg {
             width: 18px;
             height: 18px;
+            flex-shrink: 0;
             transition: transform 0.3s ease;
         }
         .cta-btn:hover svg {
@@ -178,6 +185,7 @@
         .ghost-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             background: transparent;
             color: var(--text);
@@ -194,8 +202,8 @@
             color: var(--primary);
             transform: translateY(-3px);
         }
-        .hero-note {
-            margin-top: 22px;
+        .hero .hero-note {
+            margin: 22px auto 0;
             font-size: 0.92rem;
             color: var(--text-muted);
             animation: fadeUp 0.7s ease backwards 0.7s;
@@ -555,33 +563,213 @@
             }
         }
         @media (max-width: 768px) {
-            .hero {
-                padding: 80px 0 50px;
-            }
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            .hero p {
-                font-size: 1.05rem;
-            }
-            .features-grid,
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-            .cta-section {
-                padding: 48px 28px;
+            .container {
+                padding: 0 16px;
             }
             header {
-                flex-direction: column;
-                gap: 14px;
+                padding: 12px 0;
             }
-            .section-title {
-                font-size: 1.6rem;
+            .logo {
+                font-size: 18px;
+            }
+            .status-badge {
+                padding: 6px 12px;
+                font-size: 12px;
+                gap: 6px;
+            }
+            .status-dot {
+                width: 7px;
+                height: 7px;
+            }
+            .hero {
+                padding: 48px 0 40px;
+            }
+            .hero-badge {
+                font-size: 12px;
+                padding: 6px 14px;
+                margin-bottom: 20px;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+                line-height: 1.35;
+                margin-bottom: 16px;
+            }
+            .hero .hero-text {
+                font-size: 1rem;
+                line-height: 1.8;
+                margin-bottom: 28px;
+            }
+            .hero-actions {
+                flex-direction: column;
+                gap: 10px;
             }
             .cta-btn,
             .ghost-btn {
                 width: 100%;
-                justify-content: center;
+            }
+            .cta-btn {
+                padding: 15px 24px;
+                font-size: 1rem;
+            }
+            .ghost-btn {
+                padding: 14px 24px;
+                font-size: 0.98rem;
+            }
+            .hero .hero-note {
+                font-size: 0.85rem;
+                margin-top: 16px;
+            }
+            .trust-strip {
+                padding: 16px 12px;
+                gap: 8px;
+                margin-bottom: 56px;
+                border-radius: 16px;
+            }
+            .trust-item {
+                padding: 8px 4px;
+            }
+            .trust-item strong {
+                font-size: 0.95rem;
+            }
+            .trust-item span {
+                font-size: 0.8rem;
+                line-height: 1.5;
+                display: block;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                line-height: 1.4;
+                margin-bottom: 10px;
+            }
+            .section-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 32px;
+            }
+            .story,
+            .features,
+            .ideas,
+            .steps,
+            .faq {
+                padding-bottom: 60px;
+            }
+            .story-box {
+                padding: 28px 20px;
+                gap: 24px;
+                border-radius: 20px;
+            }
+            .story-text h2 {
+                font-size: 1.4rem;
+                margin-bottom: 12px;
+            }
+            .story-text p {
+                font-size: 0.97rem;
+            }
+            .story-list {
+                gap: 10px;
+            }
+            .story-list li {
+                padding: 12px 14px;
+                font-size: 0.93rem;
+                gap: 10px;
+            }
+            .features-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .feature-card {
+                padding: 24px 20px;
+                border-radius: 18px;
+            }
+            .feature-icon {
+                width: 44px;
+                height: 44px;
+                margin-bottom: 16px;
+            }
+            .feature-card h3 {
+                font-size: 1.1rem;
+                margin-bottom: 8px;
+            }
+            .feature-card p {
+                font-size: 0.93rem;
+            }
+            .ideas-grid {
+                gap: 10px;
+            }
+            .idea-chip {
+                padding: 10px 16px;
+                font-size: 0.88rem;
+            }
+            .step-card {
+                padding: 24px 20px;
+                border-radius: 18px;
+            }
+            .step-number {
+                width: 46px;
+                height: 46px;
+                font-size: 1.1rem;
+                margin-bottom: 14px;
+            }
+            .step-card h3 {
+                font-size: 1.05rem;
+            }
+            .step-card p {
+                font-size: 0.93rem;
+            }
+            .faq-list {
+                gap: 10px;
+            }
+            .faq-item {
+                border-radius: 14px;
+            }
+            .faq-item summary {
+                padding: 16px 16px;
+                font-size: 0.97rem;
+                gap: 12px;
+            }
+            .faq-item summary::after {
+                width: 26px;
+                height: 26px;
+                font-size: 1.1rem;
+            }
+            .faq-item p {
+                padding: 0 16px 18px;
+                font-size: 0.93rem;
+            }
+            .cta-section {
+                padding: 36px 20px;
+                margin-bottom: 48px;
+                border-radius: 22px;
+            }
+            .cta-section h2 {
+                font-size: 1.45rem;
+                line-height: 1.4;
+            }
+            .cta-section p {
+                font-size: 0.97rem;
+                margin-bottom: 24px;
+            }
+            footer {
+                padding: 24px 0;
+                font-size: 0.82rem;
+            }
+        }
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.85rem;
+            }
+            .logo {
+                font-size: 16px;
+            }
+            .status-badge {
+                padding: 5px 10px;
+                font-size: 11px;
+            }
+            .trust-strip {
+                grid-template-columns: 1fr 1fr;
+            }
+            .section-title {
+                font-size: 1.35rem;
             }
         }
     </style>
@@ -614,7 +802,7 @@
                 نطاق مميز جاهز للاستخدام
             </div>
             <h1>اسم مشروعك القادم<br>هو <span class="domain-name">e5tiaraty.com</span></h1>
-            <p>كلمة «اختياراتي» يفهمها كل عربي من أول نظرة. اسم قصير وسهل التذكر ويوحي بالثقة والانتقاء، جاهز تبني عليه متجرك أو موقع تقييماتك أو منصة ترشيحاتك من اليوم الأول.</p>
+            <p class="hero-text">كلمة «اختياراتي» يفهمها كل عربي من أول نظرة. اسم قصير وسهل التذكر ويوحي بالثقة والانتقاء، جاهز تبني عليه متجرك أو موقع تقييماتك أو منصة ترشيحاتك من اليوم الأول.</p>
             <div class="hero-actions">
                 <a href="https://www.facebook.com/share/1E6Wm1VM1f/" class="cta-btn" target="_blank" rel="noopener noreferrer">
                     تواصل معي لتقديم عرضك
