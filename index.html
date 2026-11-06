@@ -263,6 +263,43 @@
             font-size: 0.9rem;
             color: var(--text-muted);
         }
+        .stats {
+            padding: 0 0 90px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 24px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .stat-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stat-card strong {
+            display: block;
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 8px;
+            direction: ltr;
+        }
+        .stat-card span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
         .section-title {
             text-align: center;
             font-size: 1.9rem;
@@ -756,6 +793,23 @@
             .step-card p {
                 font-size: 0.93rem;
             }
+            .stats {
+                padding-bottom: 60px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .stat-card {
+                padding: 24px 20px;
+                border-radius: 18px;
+            }
+            .stat-card strong {
+                font-size: 2.1rem;
+            }
+            .stat-card span {
+                font-size: 0.95rem;
+            }
             .faq-list {
                 gap: 10px;
             }
@@ -826,6 +880,7 @@
             .story-box,
             .step-card,
             .faq-item,
+            .stat-card,
             .idea-chip {
                 opacity: 1;
                 transform: none;
@@ -878,6 +933,24 @@
             <div class="trust-item">
                 <strong>نقل ملكية آمن</strong>
                 <span>خطوات واضحة وسريعة</span>
+            </div>
+        </section>
+        <section class="stats">
+            <h2 class="section-title">أداء النطاق في أول شهرين من تشغيله</h2>
+            <p class="section-subtitle">أرقام فعلية تثبت أن الاسم يظهر ويجذب الزوار في محركات البحث</p>
+            <div class="stats-grid">
+                <div class="stat-card reveal">
+                    <strong>+10,000</strong>
+                    <span>ظهور في نتائج بحث جوجل</span>
+                </div>
+                <div class="stat-card reveal">
+                    <strong>+450</strong>
+                    <span>نقرة من بحث جوجل</span>
+                </div>
+                <div class="stat-card reveal">
+                    <strong>+45,000</strong>
+                    <span>زيارة مجمعة خلال شهرين</span>
+                </div>
             </div>
         </section>
         <section class="story" id="why">
